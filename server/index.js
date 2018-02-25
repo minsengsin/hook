@@ -1,29 +1,16 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// var items = require('../database-mysql');
-// var items = require('../database-mongo');
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const axios = require('axios');
+let app = express();
 
-var app = express();
 
-// UNCOMMENT FOR REACT
-// app.use(express.static(__dirname + '/../react-client/dist'));
+app.use(express.static(__dirname + '/../client/dist/'))
+app.use(bodyParser.json());
+app.set('port', 8000)
 
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
 
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
-  });
+
+app.listen(app.get('port'), function() {
+  console.log('listening on port 8000!');
 });
-
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
-});
-
