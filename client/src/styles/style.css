@@ -1,3 +1,14 @@
 body {
   font-family: sans-serif;
+  background-color: rgb(0,99,81);
+  display: grid;
+  grid-template-columns: 1fr 1fr 8fr;
+  grid-template-rows: repeat(6, 16.66vh)
+}
+
+.banner {
+  grid-row: 1;
+  grid-column: 1;
+  font-size: 34px;
+  color: white;
 }
